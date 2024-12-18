@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Maintenance from "./components/Maintenance"; // Página en mantenimiento
 import "./styles/news.css";
 
+//Funció principal que fa còrrer l'app
 function App() {
   return (
     <UserProvider> {/* Proveer el contexto del usuario */}

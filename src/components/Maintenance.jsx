@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//Funció per ensenyar pagines inacabades 
 function Maintenance() {
   return (
     <div

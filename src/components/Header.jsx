@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useUser } from "../contexts/UserContext"; // Importar el contexto del usuario
 import Logo from "/y18.svg";
 
+//Funció per ensenyar la barra de navegació de sobre de la app
 function Header() {
   const { currentUser, setCurrentUser, USERS } = useUser(); // Acceso al usuario actual y la lista de usuarios
 

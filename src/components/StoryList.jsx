@@ -1,6 +1,7 @@
 import React from "react";
 import VoteButton from "./VoteButton";
 
+//Funció per mostrar submisions
 function StoryList() {
   const stories = [
     {

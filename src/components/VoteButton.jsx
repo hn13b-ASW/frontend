@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { vote } from "../utils/hn";
 
+//Funció per donar like
 function VoteButton({ id }) {
   const [voted, setVoted] = useState(false);
 
