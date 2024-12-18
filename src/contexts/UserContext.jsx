@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 // Crear el contexto
 const UserContext = createContext();
@@ -13,7 +13,16 @@ const USERS = [
 
 // Proveedor del contexto
 export function UserProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(USERS[0]); // "observador" por defecto
+  // Estado inicial cargado desde sessionStorage o "observador" por defecto
+  const [currentUser, setCurrentUser] = useState(() => {
+    const savedUser = sessionStorage.getItem("currentUser");
+    return savedUser ? JSON.parse(savedUser) : USERS[0];
+  });
+
+  // Guardar el usuario actual en sessionStorage cada vez que cambie
+  useEffect(() => {
+    sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
+  }, [currentUser]);
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser, USERS }}>
