@@ -1,5 +1,5 @@
 # frontend
-frontend HackerNews "hn13b" amb react
+frontend HackerNews "hn13b" amb React + Vite
 
 Students:
 

@@ -1,0 +1,225 @@
+/* Archivo: news.css */
+
+/* General settings for the body and table data */
+body {
+  font-family: Verdana, Geneva, sans-serif; /* Tipo de letra general */
+  font-size: 10pt; /* Tamaño de fuente estándar */
+  color: #828282; /* Color gris claro por defecto */
+}
+td {
+  font-family: Verdana, Geneva, sans-serif; /* Estilo consistente con el body */
+  font-size: 10pt; /* Tamaño de fuente del texto en celdas */
+  color: #828282; /* Color de texto igual que en el body */
+}
+
+/* Especificaciones para elementos de la clase admin */
+.admin td {
+  font-family: Verdana, Geneva, sans-serif; /* Fuente estándar */
+  font-size: 8.5pt; /* Tamaño de fuente más pequeño */
+  color: #000000; /* Texto en negro */
+}
+
+.subtext td {
+  font-family: Verdana, Geneva, sans-serif; /* Fuente consistente */
+  font-size: 7pt; /* Tamaño más pequeño */
+  color: #828282; /* Color gris */
+}
+
+input {
+  font-family: monospace; /* Fuente monoespaciada para entradas */
+  font-size: 10pt;
+}
+input[type='submit'] {
+  font-family: Verdana, Geneva, sans-serif; /* Fuente específica para botones de envío */
+}
+textarea {
+  font-family: monospace; /* Fuente monoespaciada */
+  font-size: 10pt;
+  resize: both; /* Permite redimensionar */
+}
+
+/* Definiciones de fuentes y colores para enlaces y estilos de texto */
+a:link {
+  color: #000000; /* Color negro para enlaces no visitados */
+  text-decoration: none; /* Sin subrayado */
+}
+
+a:visited {
+  color: #828282; /* Color gris para enlaces ya visitados */
+  text-decoration: none; /* Sin subrayado */
+}
+
+/* Clases relacionadas con secciones específicas */
+.default {
+  font-family: Verdana, Geneva, sans-serif; /* Fuente general */
+  font-size: 10pt; /* Tamaño estándar */
+  color: #828282; /* Color por defecto */
+}
+
+.admin {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 8.5pt;
+  color: #000000;
+}
+
+.title {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color: #828282;
+  overflow: hidden; /* Manejo de contenido largo */
+}
+
+.subtext {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 7pt;
+  color: #828282;
+}
+
+.yclinks {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 8pt;
+  color: #828282;
+}
+
+.pagetop {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color: #222222;
+  line-height: 12px;
+}
+
+.comhead {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 8pt;
+  color: #828282; /* Color gris suave */
+}
+
+.comment {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9pt;
+}
+
+.hnname  { margin-left:1px; margin-right: 5px; }
+
+#hnmain { min-width: 796px; }
+
+.title a { word-break: break-word; }
+
+.comment a:link, .comment a:visited { text-decoration: underline; }
+.noshow { display: none; }
+.nosee { visibility: hidden; pointer-events: none; cursor: default }
+
+.c00, .c00 a:link { color:#000000; }
+.c5a, .c5a a:link, .c5a a:visited { color:#5a5a5a; }
+.c73, .c73 a:link, .c73 a:visited { color:#737373; }
+.c82, .c82 a:link, .c82 a:visited { color:#828282; }
+.c88, .c88 a:link, .c88 a:visited { color:#888888; }
+.c9c, .c9c a:link, .c9c a:visited { color:#9c9c9c; }
+.cae, .cae a:link, .cae a:visited { color:#aeaeae; }
+.cbe, .cbe a:link, .cbe a:visited { color:#bebebe; }
+.cce, .cce a:link, .cce a:visited { color:#cecece; }
+.cdd, .cdd a:link, .cdd a:visited { color:#dddddd; }
+.ca2 { color:#a30000; }
+
+.pagetop a:visited { color:#000000;}
+.topsel a:link, .topsel a:visited { color:#ffffff; }
+
+.subtext a:link, .subtext a:visited { color:#828282; }
+.subtext a:hover { text-decoration:underline; }
+
+.comhead a:link, .subtext a:visited { color:#828282; }
+.comhead a:hover { text-decoration:underline; }
+
+.hnmore a:link, a:visited { color:#828282; }
+.hnmore { text-decoration:underline; }
+
+.default p { margin-top: 8px; margin-bottom: 0px; }
+
+.pagebreak {page-break-before:always}
+
+pre { overflow: auto; padding: 2px; white-space: pre-wrap; overflow-wrap:anywhere; }
+pre:hover { overflow:auto }
+
+/* Estilo para flechas de votación */
+.votearrow {
+  width: 10px;
+  height: 10px;
+  border: 0px;
+  margin: 3px 2px 6px;
+  background: url("triangle.svg"), linear-gradient(transparent, transparent) no-repeat; /* Imagen SVG como flecha */
+  background-size: 10px; /* Ajuste de tamaño */
+}
+
+.votelinks.nosee div.votearrow.rotate180 {
+  display: none; /* Esconde flechas invertidas */
+}
+
+table.padtab td { padding:0px 10px }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+  .votearrow {
+    background-size: 10px;
+    background-image: url("triangle.svg"), linear-gradient(transparent, transparent);
+  }
+}
+
+/* Rotación y manipulación de transformaciones */
+.rotate180 {
+  -webkit-transform: rotate(180deg); /* Chrome y navegadores webkit */
+  -moz-transform: rotate(180deg); /* Firefox */
+  -o-transform: rotate(180deg); /* Opera */
+  -ms-transform: rotate(180deg); /* IE9 */
+  transform: rotate(180deg); /* Navegadores compatibles con W3C */
+}
+
+.comment { max-width: 1215px; overflow-wrap:anywhere; }
+
+@media only screen and (min-width : 900px) and (max-width : 1079px) {
+  .comment { max-width: 810px; overflow: hidden }
+}
+@media only screen and (min-width : 1080px) and (max-width : 1169px) {
+  .comment { max-width: 970px; overflow: hidden }
+}
+@media only screen and (min-width : 1170px) and (max-width : 1259px) {
+  .comment { max-width: 1050px; overflow: hidden }
+}
+@media only screen and (min-width : 1260px) and (max-width : 1349px) {
+  .comment { max-width: 1130px; overflow: hidden }
+}
+
+/* Ajustes para la barra de búsqueda */
+.search-bar {
+  font-size: 10pt; /* Coincide con el tamaño del encabezado */
+  padding: 3px;    /* Reduce el padding */
+  width: 70%;      /* Ancho reducido */
+}
+
+.search-bar::placeholder {
+  font-size: 10pt; /* Ajusta el placeholder */
+  color: #828282;  /* Color gris claro */
+}
+
+/* Estilos para el pie de página */
+.footer {
+  text-align: center;
+  font-size: 8pt;
+  color: #828282;
+  margin-top: 20px;
+  margin-bottom: 20px; /* Espaciado inferior adicional */
+}
+
+.footer hr {
+  border: none;
+  height: 1px;
+  background-color: #ff6600; /* Línea naranja superior */
+  margin: 10px auto; /* Centrado */
+}
+
+.footer a {
+  color: #828282;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
