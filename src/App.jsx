@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import StoryList from "./components/StoryList";
 import Footer from "./components/Footer";
 import Maintenance from "./components/Maintenance"; // Página en mantenimiento
+import Submit from "./components/Submit";
 import "./styles/news.css";
 
 //Funció principal que fa còrrer l'app
@@ -34,11 +35,10 @@ function App() {
                   </DefaultLayout>
                 }
               />
+              <Route path="/submit" element={<DefaultLayout><Submit /></DefaultLayout>} />
 
               {/* Ruta temporal sin header ni footer */}
-              <Route
-                path="/maintenance"
-                element={
+              <Route path="/maintenance" element={
                   <NoHeaderFooterLayout>
                     <Maintenance />
                   </NoHeaderFooterLayout>
