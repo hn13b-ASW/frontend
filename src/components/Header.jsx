@@ -1,11 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/UserContext"; // Importar el contexto del usuario
 import Logo from "/y18.svg";
+import axios from "axios";
 
-// Funció per ensenyar la barra de navegació de sobre de la app
 function Header() {
-  const { currentUser, setCurrentUser, USERS } = useUser(); // Acceso al usuario actual y la lista de usuarios
+  const { currentUser, setCurrentUser, USERS } = useUser();
+  const navigate = useNavigate();
+  const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    setIsLoading(true); // Activar estado de carga
+
+    try {
+      const response = await axios.get(
+        `https://hn13b.onrender.com/api/v1/submissions/search`,
+        { params: { query } }
+      );
+
+      // Redirigir con resultados
+      navigate("/search", { state: { results: response.data } });
+    } catch (error) {
+      // Manejar error (422 o cualquier otro)
+      navigate("/search", {
+        state: { errorMessage: "Error al realizar la búsqueda. Inténtalo de nuevo." },
+      });
+    } finally {
+      setIsLoading(false); // Desactivar estado de carga
+    }
+  };
 
   return (
     <header style={{ backgroundColor: "#ff6600", padding: "2px" }}>
@@ -40,14 +65,22 @@ function Header() {
             </td>
             {/* Barra de búsqueda */}
             <td style={{ textAlign: "center" }}>
-              <form method="get" action="https://hn.algolia.com/">
+              <form onSubmit={handleSearch}>
                 <input
                   type="text"
                   name="q"
                   placeholder="Search on Hacker News"
                   className="search-bar"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  disabled={isLoading} // Deshabilitar durante carga
                 />
-                <input type="submit" value="Search" style={{ fontSize: "10pt" }} />
+                <input
+                  type="submit"
+                  value={isLoading ? "Buscando..." : "Search"}
+                  style={{ fontSize: "10pt" }}
+                  disabled={isLoading} // Deshabilitar durante carga
+                />
               </form>
             </td>
             {/* Usuario */}
@@ -81,4 +114,3 @@ function Header() {
 }
 
 export default Header;
-

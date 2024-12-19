@@ -9,6 +9,7 @@ import StoryList from "./components/StoryList";
 import Footer from "./components/Footer";
 import Maintenance from "./components/Maintenance"; // Página en mantenimiento
 import Submit from "./components/Submit";
+import SearchResults from "./components/SearchResults"; // Nueva página de resultados de búsqueda
 import "./styles/news.css";
 
 //Funció principal que fa còrrer l'app
@@ -36,7 +37,14 @@ function App() {
                 }
               />
               <Route path="/submit" element={<DefaultLayout><Submit /></DefaultLayout>} />
-
+              {/* Nueva ruta para los resultados de búsqueda */}
+              <Route path="/search"
+                element={
+                  <DefaultLayout>
+                    <SearchResults />
+                  </DefaultLayout>
+                }
+              />
               {/* Ruta temporal sin header ni footer */}
               <Route path="/maintenance" element={
                   <NoHeaderFooterLayout>
@@ -55,4 +63,5 @@ function App() {
 }
 
 export default App;
+
 
