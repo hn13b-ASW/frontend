@@ -30,10 +30,12 @@ function Header() {
                 <b className="hnname">
                   <Link to="/">Hacker News</Link>
                 </b>
-                <Link to="/newest">new</Link> | <Link to="/front">past</Link> |{" "}
-                <Link to="/comments">comments</Link> | <Link to="/ask">ask</Link> |{" "}
-                <Link to="/show">show</Link> | <Link to="/jobs">jobs</Link> |{" "}
-                <Link to="/submit">submit</Link>
+                | {" "}
+                <Link to="/new">new</Link> | {" "}
+                <Link to="/threads">threads</Link> | {" "}
+                <Link to="/comments">comments</Link> | {" "}
+                <Link to="/ask">ask</Link> | {" "}
+                <Link to="/submit">submit</Link> | {" "}
               </span>
             </td>
             {/* Barra de búsqueda */}
