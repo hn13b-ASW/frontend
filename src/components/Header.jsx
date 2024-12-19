@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useUser } from "../contexts/UserContext"; // Importar el contexto del usuario
 import Logo from "/y18.svg";
 
-//Funció per ensenyar la barra de navegació de sobre de la app
+// Funció per ensenyar la barra de navegació de sobre de la app
 function Header() {
   const { currentUser, setCurrentUser, USERS } = useUser(); // Acceso al usuario actual y la lista de usuarios
 
@@ -14,7 +14,7 @@ function Header() {
           <tr>
             <td style={{ width: "18px", paddingRight: "4px" }}>
               {/* Logo */}
-              <a href="https://news.ycombinator.com">
+              <Link to="/">
                 <img
                   src={Logo}
                   width="18"
@@ -22,16 +22,16 @@ function Header() {
                   alt="Hacker News Logo"
                   style={{ border: "1px solid white", display: "block" }}
                 />
-              </a>
+              </Link>
             </td>
             {/* Navegación */}
             <td>
               <span className="pagetop">
                 <b className="hnname">
-                  <Link to="/news">Hacker News</Link>
+                  <Link to="/">Hacker News</Link>
                 </b>
                 <Link to="/newest">new</Link> | <Link to="/front">past</Link> |{" "}
-                <Link to="/newcomments">comments</Link> | <Link to="/ask">ask</Link> |{" "}
+                <Link to="/comments">comments</Link> | <Link to="/ask">ask</Link> |{" "}
                 <Link to="/show">show</Link> | <Link to="/jobs">jobs</Link> |{" "}
                 <Link to="/submit">submit</Link>
               </span>
@@ -54,11 +54,13 @@ function Header() {
                 Usuario:{" "}
                 <select
                   value={currentUser.name} // Usuario seleccionado actualmente
-                  onChange={(e) =>
-                    setCurrentUser(
-                      USERS.find((user) => user.name === e.target.value)
-                    )
-                  }
+                  onChange={(e) => {
+                    const selectedUser = USERS.find((user) => user.name === e.target.value);
+                    if (selectedUser) {
+                      setCurrentUser(selectedUser); // Actualizar el contexto
+                      window.location.reload(); // Recargar la página
+                    }
+                  }}
                   style={{ fontSize: "10pt" }}
                 >
                   {USERS.map((user) => (
@@ -77,3 +79,4 @@ function Header() {
 }
 
 export default Header;
+

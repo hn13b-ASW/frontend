@@ -8,7 +8,6 @@ const USERS = [
   { name: "observador", api_Key: "no_privileges" },
   { name: "usuario1", api_Key: "key_usuario1" },
   { name: "usuario2", api_Key: "key_usuario2" },
-  { name: "admin", api_Key: "key_admin" },
 ];
 
 // Proveedor del contexto
