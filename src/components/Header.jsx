@@ -32,6 +32,14 @@ function Header() {
     }
   };
 
+  const handleUserClick = () => {
+    if (currentUser.user_id === 0) {
+      alert("El usuario Observador no tiene perfil. Selecciona otro usuario.");
+      return;
+    }
+    navigate(`/${currentUser.user_id}`); // Redirigir a la ruta del perfil
+  };
+
   return (
     <header style={{ backgroundColor: "#ff6600", padding: "2px" }}>
       <table width="100%">
@@ -86,7 +94,18 @@ function Header() {
             {/* Usuario */}
             <td style={{ textAlign: "right", paddingRight: "4px" }}>
               <span className="pagetop">
-                Usuario:{" "}
+                {/* Texto clicable "Usuario:" */}
+                <span
+                  onClick={handleUserClick}
+                  style={{
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                    color: "#222222",
+                  }}
+                >
+                  Usuario:
+                </span>{" "}
+                {/* Desplegable para cambiar de usuario */}
                 <select
                   value={currentUser.user_id} // Usuario seleccionado actualmente
                   onChange={(e) => {

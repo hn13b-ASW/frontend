@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Maintenance from "./components/Maintenance"; // Página en mantenimiento
 import Submit from "./components/Submit";
 import SearchResults from "./components/SearchResults"; // Nueva página de resultados de búsqueda
+import UserProfile from "./components/UserProfile"; // Nueva página de perfil de usuario
 import "./styles/news.css";
 
 //Funció principal que fa còrrer l'app
@@ -45,6 +46,8 @@ function App() {
                   </DefaultLayout>
                 }
               />
+              {/* Nueva ruta para perfil de usuario */}
+              <Route path="/:user_id" element={<DefaultLayout><UserProfile /></DefaultLayout>} />
               {/* Ruta temporal sin header ni footer */}
               <Route path="/maintenance" element={
                   <NoHeaderFooterLayout>
@@ -63,5 +66,4 @@ function App() {
 }
 
 export default App;
-
 
