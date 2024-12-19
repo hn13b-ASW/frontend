@@ -55,9 +55,9 @@ function Header() {
               <span className="pagetop">
                 Usuario:{" "}
                 <select
-                  value={currentUser.name} // Usuario seleccionado actualmente
+                  value={currentUser.user_id} // Usuario seleccionado actualmente
                   onChange={(e) => {
-                    const selectedUser = USERS.find((user) => user.name === e.target.value);
+                    const selectedUser = USERS.find((user) => user.user_id === Number(e.target.value));
                     if (selectedUser) {
                       setCurrentUser(selectedUser); // Actualizar el contexto
                       window.location.reload(); // Recargar la página
@@ -66,8 +66,8 @@ function Header() {
                   style={{ fontSize: "10pt" }}
                 >
                   {USERS.map((user) => (
-                    <option key={user.name} value={user.name}>
-                      {user.name}
+                    <option key={user.user_id} value={user.user_id}>
+                      {user.name} {/* Mostrar name como opción visible */}
                     </option>
                   ))}
                 </select>

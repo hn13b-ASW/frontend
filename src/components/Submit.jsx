@@ -50,7 +50,7 @@ function Submit() {
     e.preventDefault();
 
     // Validar usuario
-    if (currentUser.name === "observador") {
+    if (currentUser.user_id === 0) { // Observador no puede realizar submissions
       setMessage("El usuario Observador no puede realizar submissions.");
       setError(true);
       return;
@@ -81,7 +81,7 @@ function Submit() {
       title,
       url: type === "url" ? url : null,
       content: type === "ask" ? content : null,
-      user_id: currentUser.name === "usuario1" ? 1 : 2, // Asignar el ID del usuario
+      user_id: currentUser.user_id, // Usar user_id directamente
     };
 
     try {
