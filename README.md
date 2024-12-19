@@ -15,3 +15,4 @@ Link aplicació backend. entrega 1 y 2 (deploy principal i de back):
 https://hn13b.onrender.com/
 
 Link frontend, entrega 3 (deploy front):
+https://frontend-fwbk.onrender.com/
