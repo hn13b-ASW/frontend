@@ -9,6 +9,11 @@ function UserProfile() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (!user_id || isNaN(user_id)) {
+      setError("Usuario inválido.");
+      return;
+    }
+
     const fetchUser = async () => {
       try {
         const response = await axios.get(`https://hn13b.onrender.com/api/v1/users/${user_id}`);
@@ -94,4 +99,3 @@ function UserProfile() {
 }
 
 export default UserProfile;
-

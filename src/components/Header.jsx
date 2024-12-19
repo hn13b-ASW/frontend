@@ -33,11 +33,11 @@ function Header() {
   };
 
   const handleUserClick = () => {
-    if (currentUser.user_id === 0) {
+    if (!currentUser || isNaN(currentUser.user_id) || currentUser.user_id === 0) {
       alert("El usuario Observador no tiene perfil. Selecciona otro usuario.");
       return;
     }
-    navigate(`/${currentUser.user_id}`); // Redirigir a la ruta del perfil
+    navigate(`/user/${currentUser.user_id}`);
   };
 
   return (
