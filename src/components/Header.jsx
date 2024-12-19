@@ -40,6 +40,14 @@ function Header() {
     navigate(`/user/${currentUser.user_id}`);
   };
 
+  const handleUserChange = (e) => {
+    const selectedUser = USERS.find((user) => user.user_id === Number(e.target.value));
+    if (selectedUser) {
+      setCurrentUser(selectedUser); // Actualizar el contexto
+      navigate(`/user/${selectedUser.user_id}`); // Redirigir al perfil del nuevo usuario
+    }
+  };
+
   return (
     <header style={{ backgroundColor: "#ff6600", padding: "2px" }}>
       <table width="100%">
@@ -108,13 +116,7 @@ function Header() {
                 {/* Desplegable para cambiar de usuario */}
                 <select
                   value={currentUser.user_id} // Usuario seleccionado actualmente
-                  onChange={(e) => {
-                    const selectedUser = USERS.find((user) => user.user_id === Number(e.target.value));
-                    if (selectedUser) {
-                      setCurrentUser(selectedUser); // Actualizar el contexto
-                      window.location.reload(); // Recargar la página
-                    }
-                  }}
+                  onChange={handleUserChange}
                   style={{ fontSize: "10pt" }}
                 >
                   {USERS.map((user) => (

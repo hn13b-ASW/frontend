@@ -38,6 +38,14 @@ function App() {
                 }
               />
               <Route
+                path="/user/0"
+                element={
+                  <DefaultLayout>
+                    <StoryList />
+                  </DefaultLayout>
+                }
+                />
+              <Route
                 path="/submit"
                 element={
                   <DefaultLayout>
