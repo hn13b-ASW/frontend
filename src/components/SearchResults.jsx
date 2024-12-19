@@ -1,8 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function SearchResults() {
   const location = useLocation();
+  const navigate = useNavigate();
   const results = location.state?.results || [];
   const errorMessage = location.state?.errorMessage || null;
 
@@ -22,6 +23,23 @@ function SearchResults() {
       ) : (
         <p>No se encontraron resultados.</p>
       )}
+      {/* Botón para volver a la página de inicio */}
+      <div style={{ marginTop: "20px" }}>
+        <button
+          onClick={() => navigate("/")} // Redirigir a la página de inicio
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#ff6600", // Color naranja
+            color: "#fff",
+            border: "none",
+            cursor: "pointer",
+            borderRadius: "5px",
+            fontSize: "14px",
+          }}
+        >
+          Volver a la página de inicio
+        </button>
+      </div>
     </div>
   );
 }
